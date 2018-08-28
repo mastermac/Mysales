@@ -14,7 +14,7 @@
 <div id="editor">
   
 </div>
-
+<!-- <button id="get" value="Hey" onclick="myFunction()">Hey</button> -->
 <!-- Include the Quill library -->
 <script src="https://cdn.quilljs.com/1.0.0/quill.min.js"></script>
 
@@ -32,6 +32,9 @@
   placeholder: 'Rich Text Editor...',
   theme: 'snow'  // or 'bubble'
 });
+function myFunction() {
+  return document.getElementsByClassName("ql-editor")[0].innerHTML;
+}
 </script>
 </body>
 </html>
