@@ -24,9 +24,11 @@
   modules: {
     toolbar: [
       [{ header: [1, 2, false] }],
-      ['bold', 'italic', 'underline'],
-      ['image', 'link','blockquote'],
-      [{ list: 'ordered' }, { list: 'bullet' }]
+      ['bold', 'italic', 'underline', 'strike'],
+      [{ 'color': [] }, { 'background': [] },{ 'script': 'sub'}, { 'script': 'super' }],
+      ['blockquote'],
+      [{ list: 'ordered' }, { list: 'bullet' },{ 'indent': '-1'}, { 'indent': '+1' },{ 'align': [] }],
+      ['clean']
     ]
   },
   placeholder: 'Rich Text Editor...',
