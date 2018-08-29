@@ -30,8 +30,11 @@
         $("#summernote").summernote("fullscreen.toggle");
         $('#summernote').summernote('focus');
     });
-    function myFunction() {
+    function getContent() {
         return $('#summernote').summernote('code');
+    }
+    function putContent(html){
+        $("#summernote").summernote("code", html);
     }
   </script>
 </body>
