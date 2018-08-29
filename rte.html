@@ -1,41 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Funnel Chart Sample</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
- <!-- Include Quill stylesheet -->
-<link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
 </head>
 <body>
-
-<!-- Create the editor container -->
-<div id="editor">
-  
-</div>
-<!-- <button id="get" value="Hey" onclick="myFunction()">Hey</button> -->
-<!-- Include the Quill library -->
-<script src="https://cdn.quilljs.com/1.0.0/quill.min.js"></script>
-
-<!-- Initialize Quill editor -->
-<script>
-  var quill = new Quill('#editor', {
-  modules: {
-    toolbar: [
-      [{ header: [1, 2, false] }],
-      ['bold', 'italic', 'underline', 'strike'],
-      ['blockquote', 'clean'],
-      [{ 'color': [] }, { 'background': [] },{ 'script': 'sub'}, { 'script': 'super' }],
-      [{ list: 'ordered' }, { list: 'bullet' },{ 'indent': '-1'}, { 'indent': '+1' },{ 'align': [] }]
-    ]
-  },
-  placeholder: 'Rich Text Editor...',
-  theme: 'snow'  // or 'bubble'
-});
-function myFunction() {
-  return document.getElementsByClassName("ql-editor")[0].innerHTML;
-}
-</script>
+  <div id="summernote"></div>
+  <!-- <button onclick="myFunction()">Get</button> -->
+  <script>
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+    function myFunction() {
+        return document.getElementsByClassName("note-editable")[0].innerHTML;
+    }
+  </script>
 </body>
 </html>
