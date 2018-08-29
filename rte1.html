@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Funnel Chart Sample</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ <!-- Include Quill stylesheet -->
+<link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Create the editor container -->
+<div id="editor">
+  
+</div>
+<!-- <button id="get" value="Hey" onclick="myFunction()">Hey</button> -->
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.0.0/quill.min.js"></script>
+
+<!-- Initialize Quill editor -->
+<script>
+  var quill = new Quill('#editor', {
+  modules: {
+    toolbar: [
+      [{ header: [1, 2, false] }],
+      ['bold', 'italic', 'underline', 'strike'],
+      ['blockquote', 'clean'],
+      [{ 'color': [] }, { 'background': [] },{ 'script': 'sub'}, { 'script': 'super' }],
+      [{ list: 'ordered' }, { list: 'bullet' },{ 'indent': '-1'}, { 'indent': '+1' },{ 'align': [] }]
+    ]
+  },
+  placeholder: 'Rich Text Editor...',
+  theme: 'snow'  // or 'bubble'
+});
+function myFunction() {
+  return document.getElementsByClassName("ql-editor")[0].innerHTML;
+}
+</script>
+</body>
+</html>
