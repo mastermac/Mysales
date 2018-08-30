@@ -12,7 +12,7 @@
 </head>
 <body>
   <div id="summernote"></div>
-  <!-- <button onclick="myFunction()">Get</button> -->
+  <!-- <button onclick="putContent(html)">Get</button> -->
   <script>
     $(document).ready(function() {
         $('#summernote').summernote({
@@ -24,8 +24,7 @@
                 ['para', ['ul', 'ol', 'paragraph']],
                 ['height', ['height']],
                 ['misc',['undo','redo']]
-            ],
-            placeholder:"Rich Text Editor..."
+            ]
         });
         $("#summernote").summernote("fullscreen.toggle");
         $('#summernote').summernote('focus');
@@ -34,7 +33,14 @@
         return $('#summernote').summernote('code');
     }
     function putContent(html){
-        $("#summernote").summernote("code", html);
+        if(html.length==0){
+            $('#summernote').summernote({
+                placeholder: 'Rich Text Editor...'
+            });
+        }
+        else{
+            $(".note-editable").html(html);
+        }
     }
   </script>
 </body>
