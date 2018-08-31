@@ -24,7 +24,8 @@
                 ['para', ['ul', 'ol', 'paragraph']],
                 ['height', ['height']],
                 ['misc',['undo','redo']]
-            ]
+            ],
+            placeholder:"Rich Text Editor..."
         });
         $("#summernote").summernote("fullscreen.toggle");
         $('#summernote').summernote('focus');
@@ -33,14 +34,7 @@
         return $('#summernote').summernote('code');
     }
     function putContent(html){
-        if(html.length==0){
-            $('#summernote').summernote({
-                placeholder: 'Rich Text Editor...'
-            });
-        }
-        else{
-            $(".note-editable").html(html);
-        }
+        $('#summernote').summernote("code",html);
     }
   </script>
 </body>
