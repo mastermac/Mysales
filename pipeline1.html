@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Funnel Chart Sample</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        body {
+            text-align: center;
+            padding: 0px;
+            margin: 0px;
+        }
+        .gauge {
+            display: block;
+            float: left;
+            height: 230px;
+            width: 350px;
+        }
+        #funnel {
+            width: 100%;
+        }
+        .pad1{
+            padding-left: 45px;
+        }
+        .pad2{
+            text-align: left;
+        }
+        .pad3{
+            line-height: 0%;
+        }
+        table { background: url("funnel.png") no-repeat; }
+    </style>
+</head>
+<body>
+        <table  style="width:640px;height:408px;color: white;">
+            <tr class="pad3">
+                <td class="pad1" style="padding-top: 50px;">Plan</td>
+                <td class="pad2" style="padding-top: 50px;" id="plan">10</td>
+            </tr>
+            <tr class="pad3">
+                <td class="pad1" style="padding-top: 10px;">Discover</td>
+                <td class="pad2" style="padding-top: 10px;" id="discover">20</td>
+            </tr>
+            <tr class="pad3">
+                <td class="pad1" style="padding-top: 10px;">Qualify</td>
+                <td class="pad2" style="padding-top: 10px;" id="qualify">30</td>
+            </tr>
+            <tr class="pad3">
+                <td class="pad1">Propose</td>
+                <td class="pad2" id="propose">40</td>
+            </tr>
+            <tr class="pad3">
+                <td class="pad1">Commit</td>
+                <td class="pad2" id="commit">50</td>
+            </tr>
+            <tr class="pad3">
+                <td class="pad1" style="padding-bottom: 20px;">Win</td>
+                <td class="pad2" style="padding-bottom: 20px;" id="win">60</td>
+            </tr>
+    
+        </table>
+        <!-- <div id="funnel" class="gauge"></div> -->
+        </div>                
+        <script src="d3.min.js"></script>
+        <script src="d3-funnel.min.js" type="text/javascript"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", showfunnel);
+            function showfunnel() {
+                var url = window.location.href;
+                var regex = /[?&]([^=#]+)=([^&#]*)/g,
+                    params = {},
+                    match;
+                while (match = regex.exec(url)) {
+                    params[match[1]] = match[2];
+                }
+                var data = [
+                    ['Plan',params['Plan'],"#b7295a"],
+                    ['Discover',params['Discover'],"#00447c"],
+                    ['Qualify',params['Qualify'],"#007db8"],
+                    ['Propose',params['Propose'],"#42aeaf"],
+                    ['Commit',params['Commit'],"#c1d82f"],
+                    ['Win',params['Win'],"#6ea204"]       
+                ];
+                document.getElementById('plan').innerHTML = params['Plan'];
+                document.getElementById('discover').innerHTML = params['Discover'];
+                document.getElementById('qualify').innerHTML = params['Qualify'];
+                document.getElementById('propose').innerHTML = params['Propose'];
+                document.getElementById('commit').innerHTML = params['Commit'];
+                document.getElementById('win').innerHTML = params['Win'];
+                // var options = {
+                //     chart: {
+                //         width: 350,
+                //         height: 230,
+                //         bottomWidth: 1 / 3,
+                //         bottomPinch: 0,
+                //         animate: 100
+                //     },
+                //         label: {
+                //         enabled: true,
+                //         fontFamily: null,
+                //         fontSize: '14px',
+                //         fill: '#fff',
+                //         format: '{l}: {f}%',
+                //     },
+                //     events: {
+                //         click: {
+                //             block: null,
+                //         },
+                //     },
+                // };
+                // var chart = new D3Funnel('#funnel');
+                // chart.draw(data, options);
+            }
+        </script>
+</body>
+</html>
