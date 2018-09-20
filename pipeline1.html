@@ -31,10 +31,45 @@
         }
         table { background: url("funnel.png");
         background-size:100% 100%; }
+        .graphrow{
+            color: white;
+            height: 38.5px;
+            line-height: 60px;
+	        background-position:center;
+	        background-repeat:no-repeat;
+	        background-size:100% 100%;
+	    }
+        .g1{
+            background-image: url('row-1-col-1.jpg');
+            line-height: 60px;
+        }
+        .g2{
+            background-image: url('row-2-col-1.jpg');
+        }
+        .g3{
+            background-image: url('row-3-col-1.jpg');
+        }
+        .g4{
+            background-image: url('row-4-col-1.jpg');
+        }
+        .g5{
+            line-height: 50px;
+            background-image: url('row-5-col-1.jpg');
+        }
+        .g6{
+            line-height: 45px;
+            background-image: url('row-6-col-1.jpg');
+        }
     </style>
 </head>
 <body>
-        <table  style="width:100%;height:230px;color: white;">
+            <div id="plan" class="graphrow g1"></div>
+            <div id="discover" class="graphrow g2"></div>
+            <div id="qualify" class="graphrow g3"></div>
+            <div id="propose" class="graphrow g4"></div>
+            <div id="commit" class="graphrow g5"></div>
+            <div id="win" class="graphrow g6"></div>
+        <!-- <table  style="width:100%;height:230px;color: white;">
             <tr class="pad3">
                 <td class="pad1" style="padding-top: 50px;">Plan</td>
                 <td class="pad2" style="padding-top: 50px;" id="plan">10</td>
@@ -60,7 +95,7 @@
                 <td class="pad2" style="padding-bottom: 20px;" id="win">60</td>
             </tr>
     
-        </table>
+        </table> -->
         <!-- <div id="funnel" class="gauge"></div> -->
         </div>                
         <script src="d3.min.js"></script>
