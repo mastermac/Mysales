@@ -32,6 +32,16 @@
         return $('#summernote').summernote('code');
     }
     function putContent(html){
+      $('#summernote').summernote({
+            toolbar: [
+                ['color', ['color']],
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['misc',['undo','redo']]
+            ],
+            placeholder:"Hey"
+        });
         $('#summernote').summernote("code",html);
     }
   </script>
