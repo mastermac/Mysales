@@ -10,18 +10,20 @@
   <script src="bootstrap.js" type="text/javascript"></script> 
   <script src="summernote.js" type="text/javascript"></script>
 </head>
-<body onload="doit()">
+<body>
   <button id="edit" class="btn btn-primary" onclick="edit()" type="button">Edit 1</button>
   <div id="summernote1"></div>
+</body>
   <!-- <button onclick="putContent(html)">Get</button> -->
   <script>
     var edit = function() {
       document.getElementById("edit").style.display="none";
       $('#summernote1').summernote({focus: true});
 };
-    var doit = function() {
+    function doit() {
       $("#edit").trigger('click');
 };
+    document.addEventListener("DOMContentLoaded", ready);
     $(document).ready(function() {
       //$("$tar").focus();
       
@@ -44,14 +46,7 @@
     function getContent() {
         return $('#summernote').summernote('code');
     }
-    function loade(){
-    var target = document.getElementsByTagName("input")[0];
-
-    if (event.target != target) {
-      target.focus();
-      target.click();
-    }
-    }
+    
     function putContent(html){
       $('#summernote').summernote({
             toolbar: [
@@ -67,5 +62,4 @@
       
     }
   </script>
-</body>
 </html>
