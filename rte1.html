@@ -28,7 +28,7 @@
         });
         //$("#summernote").summernote("fullscreen.toggle");
         $('.summernote').summernote('focus');
-      loade();
+      $('.summernote').summernote( { focus: true } );
     });
     function getContent() {
         return $('#summernote').summernote('code');
