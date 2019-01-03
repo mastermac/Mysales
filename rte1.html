@@ -11,10 +11,13 @@
   <script src="summernote.js" type="text/javascript"></script>
 </head>
 <body>
+  <button id="edit" class="btn btn-primary" onclick="edit()" type="button">Edit 1</button>
   <div id="summernote1"></div>
-  <textarea id="tar" rows="4" autofocus></textarea>
   <!-- <button onclick="putContent(html)">Get</button> -->
   <script>
+    var edit = function() {
+  $('.summernote1').summernote({focus: true});
+};
     $(document).ready(function() {
       $("$tar").focus();
       $("$tar").trigger('click');
