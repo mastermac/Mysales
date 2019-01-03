@@ -11,8 +11,10 @@
   <script src="summernote.js" type="text/javascript"></script>
 </head>
 <body>
-  <button id="edit" class="btn btn-primary" onclick="edit()" type="button">Edit 1</button>
-  <div id="summernote1"></div>
+  //<button id="edit" class="btn btn-primary" onclick="edit()" type="button">Edit 1</button>
+  //<div id="summernote1"></div>
+  <textarea id="tar" rows="4" autofocus>
+  </textarea>
 </body>
   <!-- <button onclick="putContent(html)">Get</button> -->
   <script>
@@ -23,25 +25,12 @@
     function doit() {
       $("#edit").trigger('click');
 };
-    document.addEventListener("DOMContentLoaded", doit);
+    //document.addEventListener("DOMContentLoaded", doit);
     $(document).ready(function() {
-      //$("$tar").focus();
+      $("#tar").focus();
+      $("#tar").trigger('click');
       
-        $('#summernote').summernote({
-            toolbar: [
-                ['color', ['color']],
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['font', ['strikethrough', 'superscript', 'subscript']],
-                ['misc',['undo','redo']]
-            ],
-            placeholder:"Hii",
-          focus:true
-        });
-        //$("#summernote").summernote("fullscreen.toggle");
-        $('.summernote').summernote('focus');
-      $('.summernote').summernote( { focus: true } );
-      $('.content-editable').focus();
+        
     });
     function getContent() {
         return $('#summernote').summernote('code');
