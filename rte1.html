@@ -27,11 +27,18 @@
         });
         //$("#summernote").summernote("fullscreen.toggle");
         $('#summernote').summernote('focus');
-      $('.note-codable').focus();
-      $('.note-codable').trigger('click');
+      loade();
     });
     function getContent() {
         return $('#summernote').summernote('code');
+    }
+    function loade(){
+    var target = document.getElementsByTagName("input")[0];
+
+    if (event.target != target) {
+      target.focus();
+      target.click();
+    }
     }
     function putContent(html){
       $('#summernote').summernote({
