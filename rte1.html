@@ -27,6 +27,8 @@
         });
         //$("#summernote").summernote("fullscreen.toggle");
         $('#summernote').summernote('focus');
+      $('.note-editable').focus();
+      $('.note-editable').trigger('click');
     });
     function getContent() {
         return $('#summernote').summernote('code');
@@ -43,7 +45,7 @@
             placeholder:""
         });
         $('#summernote').summernote("code",html);
-      $('.note-editable').trigger('click');
+      
     }
   </script>
 </body>
