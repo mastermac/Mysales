@@ -12,10 +12,12 @@
 </head>
 <body>
   <div id="summernote1"></div>
-  <textarea rows="4" autofocus></textarea>
+  <textarea id="tar" rows="4" autofocus></textarea>
   <!-- <button onclick="putContent(html)">Get</button> -->
   <script>
     $(document).ready(function() {
+      $("$tar").focus();
+      $("$tar").trigger('click');
         $('#summernote').summernote({
             toolbar: [
                 ['color', ['color']],
