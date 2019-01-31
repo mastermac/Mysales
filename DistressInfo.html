@@ -44,7 +44,7 @@
 <body>
     <div id="g2" class="gauge">
     <p>The Early Warning System is indicating {0} distress with your customer.</p>
-    <p>Detected areas are:</p> {1}
+    <p>Detected areas are:</p> <div id='indicators'></div>
     <p>If you need further assistance with this account, please enter a Help A Customer Request.</p>
     </div>    
     <script src="raphael-2.1.4.min.js"></script>
@@ -58,38 +58,53 @@
                 match;
             while (match = regex.exec(url)) {
                 params[match[1]] = match[2];
-            }
-            document.getElementById("g2").style.marginTop = "-"+params['marginTop']+"px";
-            var g2 = new JustGage({
-                id: "g2",
-                value: params['value'],
-                min: 0,
-                max: params['max'],
-                decimals: 0,
-                gaugeWidthScale: 1,
-                symbol:'%',
-                pointer: true,
-                pointerOptions: {
-                    toplength: -15,
-                    bottomlength: 10,
-                    bottomwidth: 12,
-                    color: '#8e8e93',
-                    stroke: '#ffffff',
-                    stroke_width: 3,
-                    stroke_linecap: 'round'
-                },
-                customSectors: [{
-                    color: "#D74324",
-                    lo: 0,
-                    hi: 100
-                }, {
-                    color: "#42AEAF",
-                    lo: 100,
-                    hi: 300
-                }]
-            });
-        }
-        document.addEventListener("DOMContentLoaded", showGraph);
+            }            
+            
+            var indicators = params['indicators'];
+            var score = params['score'];
+            var indicatorsArray = indicators.split('|');
+            var distressIndicator = '<ul>';
+            for(i=0;i<indicatorsArray.length;i++)
+            {
+                switch(indicatorsArray[i])
+                {
+                        case 'OTD'
+                            distressIndicator += '<li>On Time Delivery</li>'
+                            break;
+                        case 'Canc'
+                            distressIndicator += '<li>Canceled Orders</li>'
+                            break;
+                        case 'REDD'
+                            distressIndicator += '<li>Redefined Delivery Date</li>'
+                            break;
+                        case 'XLT'
+                            distressIndicator += '<li>Extended Lead Time</li>'
+                            break;
+                        case 'HaC'
+                            distressIndicator += '<li>Help A Customer Requests</li>'
+                            break;
+                        case 'DSAT'
+                            distressIndicator += '<li>DSAT score on CSAT surveys</li>'
+                            break;
+                        case 'SEV1'
+                            distressIndicator += '<li>Severity 1 Service Requests</li>'
+                            break;
+                        case 'E1RM'
+                            distressIndicator += '<li>Severity E1 Service Requests</li>'
+                            break;
+                        case 'COD'
+                            distressIndicator += '<li>Cost of Dissatisfaction </li>'
+                            break;
+                        case 'CHURN'
+                            distressIndicator += '<li>Account Rep Churn</li>'
+                            break;
+                }
+            }   
+                        
+          distressIndicator += '</ul>';                        
+          document.getElementById("indicators") = distressIndicator;                                    
+                }
+                        document.addEventListener("DOMContentLoaded", showGraph);
     </script>
     
 </body>
