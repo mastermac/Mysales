@@ -34,7 +34,7 @@
                 params[match[1]] = match[2];
             }
 
-            var indicators = params['indicators'];
+            var indicators = params['indicators'].replace('%7C','|');
             document.getElementById("indicators1").innerHTML = indicators;
             var score = params['score'];
             var indicatorsArray = indicators.split('|');            
