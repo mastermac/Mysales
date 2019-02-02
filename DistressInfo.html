@@ -19,6 +19,7 @@
         <p>The Early Warning System is indicating <strong><span id='scoreText'></span></strong> distress with your customer.</p>
         <p>Detected areas are:</p>
         <div id='indicators'></div>
+        <div id='indicators1'></div>
         <p>If you need further assistance with this account, please enter a Help A Customer Request.</p>
     </div>
     <script>
@@ -34,9 +35,10 @@
             }
 
             var indicators = params['indicators'];
+            document.getElementById("indicators1").innerHTML = indicators;
             var score = params['score'];
-            var indicatorsArray = indicators.split('|');
-            var distressIndicator = '<ul>';
+            var indicatorsArray = indicators.split('|');            
+            var distressIndicator = '<ul>';            
             for (i = 0; i < indicatorsArray.length; i++) {
                 switch (indicatorsArray[i]) {
                     case 'OTD':
