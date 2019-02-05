@@ -25,6 +25,7 @@
         function ShowDistressInfo() {
 
             var url = window.location.href;
+            url= decodeURI(url);
             var regex = /[?&]([^=#]+)=([^&#]*)/g,
                 params = {},
                 match;
