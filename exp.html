@@ -16,7 +16,9 @@
 </body>
 <script type="text/javascript">
 function loadfocus(){
-   $("q").click();
+   $("q").click(function() {
+      $("q").focus();
+   });
 }
    $(document).ready(function() {
       loadfocus();
