@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Form focus onload</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body onLoad='document.forms[0].q.focus()'>
 <div >
@@ -15,7 +16,10 @@
 </body>
 <script type="text/javascript">
 function loadfocus(){
-   document.getElementById('q').focus();
+   $("q").click();
 }
+   $(document).ready(function() {
+      loadfocus();
+   });
 </script>
 </html>
