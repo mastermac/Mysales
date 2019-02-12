@@ -7,6 +7,32 @@
   <link href="bootstrap.css" rel="stylesheet">
   <link href="summernote.css" rel="stylesheet">
   <script src="jquery.js"></script> 
+  <script>
+    $(document).ready(function() {
+  $.fn.extend({
+            placeCursorAtEnd: function() {
+                // Places the cursor at the end of a contenteditable container (should also work for textarea / input)
+                if (this.length === 0) {
+                    throw new Error("Cannot manipulate an element if there is no element!");
+                }
+                var el = this[0];
+                var range = document.createRange();
+                var sel = window.getSelection();
+                var childLength = el.childNodes.length;
+                if (childLength > 0) {
+                    var lastNode = el.childNodes[childLength - 1];
+                    var lastNodeChildren = lastNode.childNodes.length;
+                    range.setStart(lastNode, lastNodeChildren);
+                    range.collapse(true);
+                    sel.removeAllRanges();
+                    sel.addRange(range);
+                }
+                return this;
+            }
+        });
+      
+    });
+  </script>
   <script src="bootstrap.js" type="text/javascript"></script> 
   <script src="summernote.js" type="text/javascript"></script>
   
@@ -15,9 +41,6 @@
   <div id="summernote"></div>
   <!-- <button onclick="putContent(html)">Get</button> -->
   <script>
-    $(document).ready(function() {
-      
-    });
     function getContent() {
         return $('#summernote').summernote('code');
     }
@@ -35,46 +58,6 @@
         $('#summernote').summernote("code",html);
       $('#summernote').summernote('focus');
     }
-    $.fn.putCursorAtEnd = function() {
-
-  return this.each(function() {
-    
-    // Cache references
-    var $el = $(this),
-        el = this;
-
-    // Only focus if input isn't already
-    if (!$el.is(":focus")) {
-     $el.focus();
-    }
-
-    // If this function exists... (IE 9+)
-    if (el.setSelectionRange) {
-
-      // Double the length because Opera is inconsistent about whether a carriage return is one character or two.
-      var len = $el.val().length * 2;
-      
-      // Timeout seems to be required for Blink
-      setTimeout(function() {
-        el.setSelectionRange(len, len);
-      }, 1);
-    
-    } else {
-      
-      // As a fallback, replace the contents with itself
-      // Doesn't work in Chrome, but Chrome supports setSelectionRange
-      $el.val($el.val());
-      
-    }
-
-    // Scroll to the bottom, in case we're in a tall textarea
-    // (Necessary for Firefox and Chrome)
-    this.scrollTop = 999999;
-
-  });
-
-};
-
 (function() {
           $('#summernote').summernote({
             toolbar: [
@@ -87,15 +70,10 @@
             placeholder:" "
         });
         //$("#summernote").summernote("fullscreen.toggle");
-        $('#summernote').summernote("code",'hello');
-
-  var searchInput = $(".note-editable");
-
-  searchInput
-    .putCursorAtEnd() // should be chainable
-    .on("focus", function() { // could be on any event
-      searchInput.putCursorAtEnd()
-    });
+        $('#summernote').summernote("code",'hell');
+$('#summernote').placeCursorAtEnd();
+$('.note-editable').placeCursorAtEnd();
+  
   
 })();
   </script>
