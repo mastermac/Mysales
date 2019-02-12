@@ -16,18 +16,7 @@
   <!-- <button onclick="putContent(html)">Get</button> -->
   <script>
     $(document).ready(function() {
-        $('#summernote').summernote({
-            toolbar: [
-                ['color', ['color']],
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['font', ['strikethrough', 'superscript', 'subscript']],
-                ['misc',['undo','redo']]
-            ],
-            placeholder:" "
-        });
-        //$("#summernote").summernote("fullscreen.toggle");
-        $('#summernote').summernote("code",'hello');
+      
     });
     function getContent() {
         return $('#summernote').summernote('code');
@@ -44,6 +33,7 @@
             placeholder:""
         });
         $('#summernote').summernote("code",html);
+      $('#summernote').summernote('focus');
     }
     $.fn.putCursorAtEnd = function() {
 
@@ -86,7 +76,19 @@
 };
 
 (function() {
-  
+          $('#summernote').summernote({
+            toolbar: [
+                ['color', ['color']],
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['misc',['undo','redo']]
+            ],
+            placeholder:" "
+        });
+        //$("#summernote").summernote("fullscreen.toggle");
+        $('#summernote').summernote("code",'hello');
+
   var searchInput = $(".note-editable");
 
   searchInput
