@@ -16,6 +16,9 @@
 </body>
 <script type="text/javascript">
 function loadfocus(){
+   var tmpStr = document.forms[0].q.val();
+document.forms[0].q.val(”);
+document.forms[0].q.val(tmpStr);
    document.forms[0].q.focus();
 }
 </script>
