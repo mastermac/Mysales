@@ -21,5 +21,25 @@ document.forms[0].q.val(”);
 document.forms[0].q.val(tmpStr);
    document.forms[0].q.focus();
 }
+   var input = document.querySelector('input');
+
+ 
+var reset = function (e) {
+    if (e.type === 'focus') {
+        this.addEventListener('mouseup', reset, false);
+        this.addEventListener('keyup', reset, false);
+    }
+    else {
+        this.removeEventListener('mouseup', reset, false);
+        this.removeEventListener('keyup', reset, false);
+    }
+     
+    // Following is what we've changed
+    var len = this.value.length;
+    this.setSelectionRange(len, len);
+};
+ 
+input.addEventListener('focus', reset, false);
+
 </script>
 </html>
