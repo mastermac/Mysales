@@ -50,7 +50,9 @@
                 ['font', ['strikethrough', 'superscript', 'subscript']],
                 ['misc',['undo','redo']]
             ],
-            placeholder:" "
+            placeholder:" ",
+            minHeight: 400,
+            maxHeight: 400
         });
         $('#summernote').summernote('focus');
     });
@@ -66,7 +68,9 @@
                 ['font', ['strikethrough', 'superscript', 'subscript']],
                 ['misc',['undo','redo']]
             ],
-            placeholder:""
+            placeholder:"",
+            minHeight: 400,
+            maxHeight: 400
         });
       $('#summernote').summernote('code','');
       $('#summernote').summernote('pasteHTML',html);
