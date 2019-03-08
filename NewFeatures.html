@@ -29,12 +29,12 @@
                 params[match[1]] = match[2];
             }
 
-            var indicators = params['indicators'];
+            var features = params['features'];
             var score = params['score'];
-            var indicatorsArray = indicators.split('|');            
+            var featuresArray = features.split('|');            
             var distressIndicator = '<ul>';            
-            for (i = 0; i < indicatorsArray.length; i++) {
-                distressIndicator += '<li>'+indicatorsArray+'</li>';
+            for (i = 0; i < featuresArray.length; i++) {
+                distressIndicator += '<li>'+featuresArray+'</li>';
             }
             distressIndicator += '</ul>';
             document.getElementById("indicators").innerHTML = distressIndicator;
