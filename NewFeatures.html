@@ -34,7 +34,7 @@
             var featuresArray = features.split('|');            
             var distressIndicator = '<ul>';            
             for (i = 0; i < featuresArray.length; i++) {
-                distressIndicator += '<li>'+featuresArray+'</li>';
+                distressIndicator += '<li>'+featuresArray[i]+'</li>';
             }
             distressIndicator += '</ul>';
             document.getElementById("indicators").innerHTML = distressIndicator;
