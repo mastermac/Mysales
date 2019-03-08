@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+        body {
+            margin: 5px;
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p><b>New Features...</b></p>
+        <div id='indicators'></div>
+    </div>
+    <script>
+        function ShowDistressInfo() {
+            var url = window.location.href;
+            url= decodeURI(url);
+            var regex = /[?&]([^=#]+)=([^&#]*)/g,
+                params = {},
+                match;
+            while (match = regex.exec(url)) {
+                params[match[1]] = match[2];
+            }
+
+            var indicators = params['indicators'];
+            var score = params['score'];
+            var indicatorsArray = indicators.split('|');            
+            var distressIndicator = '<ul>';            
+            for (i = 0; i < indicatorsArray.length; i++) {
+                distressIndicator += '<li>'+indicatorsArray+'</li>';
+            }
+            distressIndicator += '</ul>';
+            document.getElementById("indicators").innerHTML = distressIndicator;
+        }
+        document.addEventListener("DOMContentLoaded", ShowDistressInfo);
+    </script>
+</body>
+</html>
