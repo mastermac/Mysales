@@ -11,12 +11,23 @@
             margin: 5px;
             font-family: 'Roboto', sans-serif;
         }
+        ul {
+            list-style-type: none;
+        }
+        ul li:after {
+            content: "";
+            display: block;
+            height: 1px;
+            width: 90%;
+            margin: 10px;
+            background: #aaaaaa;
+        }
     </style>
 </head>
 <body>
     <div>
         <!-- <p><b>What's new in v2.0.2?</b></p> -->
-        <div id='indicators'></div>
+        <div id='indicators' color="#444444"></div>
     </div>
     <script>
         function ShowDistressInfo() {
