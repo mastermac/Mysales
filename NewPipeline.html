@@ -133,27 +133,27 @@
                 while (match = regex.exec(url)) {
                     params[match[1]] = match[2];
                 }
-		var splitArray=params['Plan'].split('|');
+		var splitArray=params['Plan'].split(';');
                 document.getElementById('plan_span').innerHTML = splitArray[0];
                 document.getElementById('plan').innerHTML = "$"+splitArray[1];
                 
-		splitArray=params['Discover'].split('|');
+		splitArray=params['Discover'].split(';');
                 document.getElementById('discover_span').innerHTML = splitArray[0];
                 document.getElementById('discover').innerHTML = "$"+splitArray[1];
 
-		splitArray=params['Qualify'].split('|');
+		splitArray=params['Qualify'].split(';');
                 document.getElementById('qualify_span').innerHTML = splitArray[0];
                 document.getElementById('qualify').innerHTML = "$"+splitArray[1];
 
-		splitArray=params['Propose'].split('|');
+		splitArray=params['Propose'].split(';');
                 document.getElementById('propose_span').innerHTML = splitArray[0];
                 document.getElementById('propose').innerHTML = "$"+splitArray[1];
 
-		splitArray=params['Commit'].split('|');
+		splitArray=params['Commit'].split(';');
                 document.getElementById('commit_span').innerHTML = splitArray[0];
                 document.getElementById('commit').innerHTML = "$"+splitArray[1];
 
-		splitArray=params['Win'].split('|');
+		splitArray=params['Win'].split(';');
                 document.getElementById('win_span').innerHTML = splitArray[0];
                 document.getElementById('win').innerHTML = "$"+splitArray[1];
             }
