@@ -5,7 +5,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        .card-panel {
+        .config-card {
+            height: 100px;
+        }
+        .home-card{
             height: 150px;
             margin-bottom: 2.5rem;
         }
@@ -60,7 +63,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
-        var widgetTemplate = '<div class="card-panel color-prop z-depth-3" id="customCard">\
+        var widgetTemplate = '<div class="card-panel home-card color-prop z-depth-3" id="customCard">\
             <div style="float: right; margin-top: -44px;">\
                 <a class="btn-floating waves-effect waves-light yellow darken-1 z-depth-3"><i class="material-icons">arrow_downward</i></a>\
                 <a class="btn-floating waves-effect waves-light green z-depth-3"><i class="material-icons">arrow_upward</i></a>\
@@ -68,7 +71,7 @@
             </div></div>';
 
         var widgetConfigureTemplate = '<div class="col s6">\
-                        <div class="card-panel color-prop-conf z-depth-3" id="customConfigureCard">\
+                        <div class="card-panel config-card color-prop-conf z-depth-3" id="customConfigureCard">\
                         </div></div>';
 
         var allWidgets = ["white","blue","pink","purple","red","yellow"];
