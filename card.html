@@ -5,31 +5,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-    .card-panel {
-        height: 150px;
-    }
+        .card-panel {
+            height: 150px;
+        }
 
-    .gblue {
-        background: linear-gradient(to right, #2980b9, #6dd5fa, #ffffff);
-    }
+        .gblue {
+            background: linear-gradient(to right, #2980b9, #6dd5fa, #ffffff);
+        }
 
-    .gpink {
-        background: linear-gradient(to right, #ffdde1, #ee9ca7);
-    }
+        .gpink {
+            background: linear-gradient(to right, #ffdde1, #ee9ca7);
+        }
 
-    .gpurple {
-        background: linear-gradient(to right, #6A82FB, #FC5C7D);
-    }
+        .gpurple {
+            background: linear-gradient(to right, #6A82FB, #FC5C7D);
+        }
 
-    .gred {
-        background: linear-gradient(to right, #b20a2c, #fffbd5);
-    }
+        .gred {
+            background: linear-gradient(to right, #b20a2c, #fffbd5);
+        }
 
-    .gyellow {
-        background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
-    }
+        .gyellow {
+            background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+        }
 
-  </style>
+    </style>
 </head>
 <body>
     <div class="row" id="cardExp" style="        padding: 1rem">
@@ -54,11 +54,44 @@
         <div class="card-panel gyellow z-depth-3">
         </div>
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large blue  z-depth-5">
+            <a id="menu" class="waves-effect waves-light btn btn-floating btn-large blue z-depth-5  modal-trigger" href="#modal1">
                 <i class="large material-icons">add</i>
             </a>
         </div>
+        <div id="modal1" class="modal bottom-sheet" style="height:100%; max-height:100%;">
+            <div class="modal-content">
+                <h4>Modal Header</h4>
+                <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
+        <div class="tap-target blue" data-target="menu">
+            <div class="tap-target-content" style="color:white;">
+                <h5>Add More Widgets</h5>
+                <p>Tap on the + Icon to add more widgets to your dashboard!</p>
+            </div>
+        </div>
+
     </div>
+    <!-- Modal Structure -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            M.AutoInit();
+            $('#modal1').modal({
+                inDuration: 300,
+                outDuration: 300,
+                preventScrolling: false,
+            });
+            document.getElementById("modal1").style.maxHeight = "100%";
+            //document.getElementById("modal1").style.height = "100%";
+
+            $('.tap-target').tapTarget('open');
+        });
+
+    </script>
 </body>
 </html>
