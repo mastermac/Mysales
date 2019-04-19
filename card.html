@@ -33,6 +33,9 @@
             background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
         }
 
+        .gligh{
+            background: linear-gradient(to right, #f7971e, #ffd200);
+        }
     </style>
 </head>
 <body>
@@ -72,7 +75,9 @@
 
         var widgetConfigureTemplate = '<div class="col s6">\
                         <div class="card-panel config-card color-prop-conf z-depth-3" id="customConfigureCard">\
-                        </div></div>';
+                            <div style="display: flex;justify-content: center;">\
+                                <a class="btn-floating waves-effect waves-light gligh z-depth-3"><i class="material-icons">add</i></a>\
+                            </div>\</div></div>';
 
         var allWidgets = ["white","blue","pink","purple","red","yellow"];
         var selectedWidgets = [0];
