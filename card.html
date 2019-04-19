@@ -60,6 +60,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
+        var widgetTemplate = '<div class="card-panel color-prop z-depth-3" id="customCard">\
+            <div style="float: right; margin-top: -44px;">\
+                <a class="btn-floating waves-effect waves-light yellow darken-1 z-depth-3"><i class="material-icons">arrow_downward</i></a>\
+                <a class="btn-floating waves-effect waves-light green z-depth-3"><i class="material-icons">arrow_upward</i></a>\
+                <a class="btn-floating waves-effect waves-light red z-depth-3"><i class="material-icons">clear</i></a>\
+            </div></div>';
+
+        var widgetConfigureTemplate = '<div class="col s6">\
+                        <div class="card-panel color-prop-conf z-depth-3" id="customConfigureCard">\
+                        </div></div>';
+
+        var allWidgets = ["white","blue","pink","purple","red","yellow"];
+        var selectedWidgets = [0];
+
         document.addEventListener('DOMContentLoaded', function () {
             M.AutoInit();
             $('#modal1').modal({
@@ -74,39 +88,32 @@
         });
 
         $(function () {
-            var allWidgets = ["white","blue","pink","purple","red","yellow"];
-            var selectedWidgets = [0,1,2,3]
-            var widgetTemplate = '<div class="card-panel color-prop z-depth-3" id="customCard">\
-            <div style="float: right; margin-top: -44px;">\
-                <a class="btn-floating waves-effect waves-light yellow darken-1 z-depth-3"><i class="material-icons">arrow_downward</i></a>\
-                <a class="btn-floating waves-effect waves-light green z-depth-3"><i class="material-icons">arrow_upward</i></a>\
-                <a class="btn-floating waves-effect waves-light red z-depth-3"><i class="material-icons">clear</i></a>\
-            </div></div>';
-
-            var widgetConfigureTemplate = '<div class="col s6">\
-                        <div class="card-panel color-prop-conf z-depth-3" id="customConfigureCard">\
-                        </div></div>';
 
             $.each(selectedWidgets, function (index, value) {
-                $("#cardExp").append(widgetTemplate);
-                if ($("#customCard").hasClass("color-prop")) {
-                    $("#customCard").removeClass("color-prop");
-                    $("#customCard").addClass('g'+allWidgets[value]);
-                    $('#customCard').removeAttr('id');
-                }
+                addWidgetToHome(value);
             });
             $.each(allWidgets, function (index, value) {
-                if (selectedWidgets.indexOf(index) == -1) {
-                    $("#cardExpConfig").append(widgetConfigureTemplate);
-                    if ($("#customConfigureCard").hasClass("color-prop-conf")) {
-                        $("#customConfigureCard").removeClass("color-prop-conf");
-                        $("#customConfigureCard").addClass('g' + value);
-                        $('#customConfigureCard').removeAttr('id');
-                    }
-                }
+                addWidgetToConfigurator(index, value);
             });
         });
-
+        function addWidgetToHome(value) {
+            $("#cardExp").append(widgetTemplate);
+            if ($("#customCard").hasClass("color-prop")) {
+                $("#customCard").removeClass("color-prop");
+                $("#customCard").addClass('g'+allWidgets[value]);
+                $('#customCard').removeAttr('id');
+            }
+        }
+        function addWidgetToConfigurator(index, value) {
+            if (selectedWidgets.indexOf(index) == -1) {
+                $("#cardExpConfig").append(widgetConfigureTemplate);
+                if ($("#customConfigureCard").hasClass("color-prop-conf")) {
+                    $("#customConfigureCard").removeClass("color-prop-conf");
+                    $("#customConfigureCard").addClass('g' + value);
+                    $('#customConfigureCard').removeAttr('id');
+                }
+            }
+        }
     </script>
 </body>
 </html>
