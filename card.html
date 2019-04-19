@@ -51,9 +51,9 @@
                 <div class="row" id="cardExpConfig" >
                 </div>
             </div>
-            <div class="modal-footer">
+            <!--<div class="modal-footer">
                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-            </div>
+            </div>-->
         </div>
         <div class="tap-target blue" data-target="menu">
             <div class="tap-target-content" style="color:white;">
@@ -76,7 +76,7 @@
         var widgetConfigureTemplate = '<div class="col s6">\
                         <div class="card-panel config-card color-prop-conf z-depth-3" id="customConfigureCard">\
                             <div style="display: flex;justify-content: center;">\
-                                <a class="btn-floating waves-effect waves-light gligh z-depth-3"><i class="material-icons">add</i></a>\
+                                <a class="modal-close btn-floating waves-effect waves-light gligh z-depth-3"><i class="material-icons">add</i></a>\
                             </div>\</div></div>';
 
         var allWidgets = ["white","blue","pink","purple","red","yellow"];
@@ -85,8 +85,8 @@
         document.addEventListener('DOMContentLoaded', function () {
             M.AutoInit();
             $('#modal1').modal({
-                inDuration: 300,
-                outDuration: 300,
+                inDuration: 800,
+                outDuration: 800,
                 opacity: 1,
                 startingTop: '0%',
                 endingTop: '0%',
