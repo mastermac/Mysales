@@ -68,9 +68,9 @@
     <script>
         var widgetTemplate = '<div class="card-panel home-card color-prop z-depth-3" id="customCard">\
             <div style="float: right; margin-top: -44px;">\
-                <a class="btn-floating waves-effect waves-light yellow darken-1 z-depth-3"><i class="material-icons">arrow_downward</i></a>\
-                <a class="btn-floating waves-effect waves-light green z-depth-3"><i class="material-icons">arrow_upward</i></a>\
-                <a class="btn-floating waves-effect waves-light red z-depth-3"><i class="material-icons">clear</i></a>\
+                <a class="btn-floating waves-effect waves-light yellow darken-1 z-depth-3 down-card"><i class="material-icons">arrow_downward</i></a>\
+                <a class="btn-floating waves-effect waves-light green z-depth-3 up-card"><i class="material-icons">arrow_upward</i></a>\
+                <a class="btn-floating waves-effect waves-light red z-depth-3 del-card"><i class="material-icons">clear</i></a>\
             </div></div>';
 
         var widgetConfigureTemplate = '<div class="col s6">\
@@ -107,6 +107,30 @@
             $.each(allWidgets, function (index, value) {
                 addWidgetToConfigurator(index, value);
             });
+            
+            $('#cardExpConfig').on("click",".modal-close", function (e) {
+                var elem = $(this).parent().parent();
+                $.each(allWidgets, function (index, value) {
+                    if (elem.hasClass('g' + value) && selectedWidgets.indexOf(index) == -1) {
+                        selectedWidgets.push(index);
+                        $(".g" + value).parent().remove();
+                        addWidgetToHome(index);
+                    }
+                });
+            });
+            $('#cardExp').on("click",".del-card", function (e) {
+                var elem = $(this).parent().parent();
+                $.each(allWidgets, function (index, value) {
+                    if (elem.hasClass('g' + value) && selectedWidgets.indexOf(index) != -1) {
+                        selectedWidgets.splice($.inArray(index, selectedWidgets), 1);
+                        $(elem).fadeOut("slow", function () {
+                            elem.remove();
+                        });
+                        addWidgetToConfigurator(index, value);
+                    }
+                });
+            });
+
         });
         function addWidgetToHome(value) {
             $("#cardExp").append(widgetTemplate);
