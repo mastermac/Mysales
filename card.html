@@ -51,9 +51,9 @@
                 <div class="row" id="cardExpConfig" >
                 </div>
             </div>
-            <!--<div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-            </div>-->
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
         </div>
         <div class="tap-target blue" data-target="menu">
             <div class="tap-target-content" style="color:white;">
@@ -87,14 +87,14 @@
             $('#modal1').modal({
                 inDuration: 800,
                 outDuration: 800,
-                opacity: 1,
+                opacity: 0.5,
                 startingTop: '0%',
                 endingTop: '0%',
                 preventScrolling: false,
                 dismissible: false
             });
             document.getElementById("modal1").style.maxHeight = "100%";
-            document.getElementById("modal1").style.height = "100%";
+            //document.getElementById("modal1").style.height = "100%";
 
             $('.tap-target').tapTarget('open');
         });
@@ -126,11 +126,18 @@
                         $(elem).fadeOut("slow", function () {
                             elem.remove();
                         });
+                        //reconstructSelectedWidgetsArray();
                         addWidgetToConfigurator(index, value);
                     }
                 });
             });
 
+            $('#cardExp').on("click", ".down-card", function (e) {
+                moveDown($(this).parent().parent()[0]);
+            });
+            $('#cardExp').on("click",".up-card", function (e) {
+                moveUp($(this).parent().parent()[0]);
+            });
         });
         function addWidgetToHome(value) {
             $("#cardExp").append(widgetTemplate);
@@ -150,6 +157,27 @@
                 }
             }
         }
+        function moveUp(element) {
+            if (element.previousElementSibling) {
+                element.parentNode.insertBefore(element, element.previousElementSibling);
+                reconstructSelectedWidgetsArray();
+            }
+        }
+        function moveDown(element) {
+            if (element.nextElementSibling) {
+                element.parentNode.insertBefore(element.nextElementSibling, element);
+                reconstructSelectedWidgetsArray();
+            }
+        }
+        function reconstructSelectedWidgetsArray() {
+            selectedWidgets = [];
+            $('#cardExp').children('.home-card').each(function () {
+                var lastClass = $(this).attr('class').split(' ').pop().substring(1);
+                if (allWidgets.indexOf(lastClass) != -1)
+                    selectedWidgets.push(allWidgets.indexOf(lastClass));
+            });
+        }
+
     </script>
 </body>
 </html>
